@@ -12,13 +12,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Vineela & Venkat's Wedding Journey",
-  description: "Join us to celebrate the wedding ceremonies and celebrations of Vineela & Venkat from September 4 to 6, 2026.",
+  title: "Jhansi & Ramesh's Wedding Journey",
+  description: "Join us to celebrate the wedding ceremonies and celebrations of Jhansi & Ramesh from December 16 to 18, 2026.",
   openGraph: {
-    title: "Vineela & Venkat's Wedding Journey",
-    description: "Join us to celebrate the wedding ceremonies and celebrations of Vineela & Venkat from September 4 to 6, 2026.",
+    title: "Jhansi & Ramesh's Wedding Journey",
+    description: "Join us to celebrate the wedding ceremonies and celebrations of Jhansi & Ramesh from December 16 to 18, 2026.",
     url: '/events',
-    siteName: 'Vineela & Venkat Wedding',
+    siteName: 'Jhansi & Ramesh Wedding',
     images: [
       {
         url: '/wedding-preview.png',
@@ -32,8 +32,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Vineela & Venkat's Wedding Journey",
-    description: "Join us to celebrate the wedding ceremonies and celebrations of Vineela & Venkat.",
+    title: "Jhansi & Ramesh's Wedding Journey",
+    description: "Join us to celebrate the wedding ceremonies and celebrations of Jhansi & Ramesh.",
     images: ['/wedding-preview.png'],
   },
 };

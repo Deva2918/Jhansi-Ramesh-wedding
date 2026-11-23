@@ -14,80 +14,60 @@ const cormorant = Cormorant_Garamond({ weight: ['400', '500', '600', '700'], sub
 const INVITATION_DATA = {
   couple: {
     groom: {
-      name: "Sai Venkateswara Rao Bonde",
-      shortName: "Venkat",
-      parents: "Mr. Srinivas Rao Bonde & Mrs. Kasthuri Bonde",
+      name: "Ramesh",
+      shortName: "Ramesh",
+      parents: "",
       image: "/assets/groom.jpg"
     },
     bride: {
-      name: "Vineela Bandi",
-      shortName: "Vineela",
-      parents: "Mr. Veerasekhara Rao Bandi & Mrs. Ajaya Kumari Bandi",
+      name: "Jhansi",
+      shortName: "Jhansi",
+      parents: "",
       image: "/assets/bride.jpg"
     }
   },
-  weddingDate: "2026-09-05T10:31:00",
+  weddingDate: "2026-12-18T20:04:00",
   events: [
     {
-      id: "pelli-koduku",
-      title: "Pelli Kuthuru and Peli Koduku",
-      date: "Friday, 04th September 2026",
-      time: "10:00 AM",
-      venue: "1 Questover Ct, St Peters, MO 63376",
-      mapUrl: "https://maps.app.goo.gl/qJE55nGfkNPKDkzj6?g_st=iw",
-      align: "left",
-      topPct: "27%"
+      id: "pelli-kuthuru",
+      title: "Pelli Kuthuru",
+      date: "Wednesday, 16th December 2026",
+      time: "Morning",
+      venue: "Manyatha Arcade",
+      mapUrl: "https://maps.app.goo.gl/5f8o9aWzrDU6vh8H9",
+      align: "right",
+      topPct: "8%"
     },
     {
       id: "haldi",
       title: "Haldi",
-      date: "Friday, 04th September 2026",
-      time: "08:30 AM",
-      venue: "1 Questover Ct, St Peters, MO 63376",
+      date: "Wednesday, 16th December 2026",
+      time: "Afternoon",
+      venue: "Manyatha Arcade",
       dressCode: "Yellow",
-      mapUrl: "https://maps.app.goo.gl/qJE55nGfkNPKDkzj6?g_st=iw",
-      align: "right",
-      topPct: "7%"
+      mapUrl: "https://maps.app.goo.gl/5f8o9aWzrDU6vh8H9",
+      align: "left",
+      topPct: "32%"
     },
     {
-      id: "mehandi",
-      title: "Mehandi",
-      date: "Friday, 04th September 2026",
-      time: "05:00 PM",
-      venue: "1 Questover Ct, St Peters, MO 63376",
-      mapUrl: "https://maps.app.goo.gl/qJE55nGfkNPKDkzj6?g_st=iw",
+      id: "mehandi-sangeeth",
+      title: "Mehandi & Sangeeth",
+      date: "Thursday, 17th December 2026",
+      time: "",
+      venue: "Manyatha Arcade",
+      mapUrl: "https://maps.app.goo.gl/5f8o9aWzrDU6vh8H9",
       align: "right",
-      topPct: "41%"
+      topPct: "57%"
     },
     {
       id: "wedding",
       title: "Wedding Day",
-      date: "Saturday, 05th September 2026",
-      time: "9:00 AM",
-      venue: "The Hindu Temple of St Louis",
-      mapUrl: "https://maps.app.goo.gl/QZRRP3PrJEx9x5J17?g_st=ipc",
+      date: "Friday, 18th December 2026",
+      time: "08:04 PM",
+      venue: "Padmavathi Parinaya Kalyana Vedika",
+      mapUrl: "https://share.google/0ZVxJKoMQRk4mo8zT",
       align: "left",
-      topPct: "60%"
-    },
-    {
-      id: "reception",
-      title: "Reception",
-      date: "Sunday, 06th September 2026",
-      time: "12:00 PM",
-      venue: "Persis Banquet Hall",
-      mapUrl: "https://maps.app.goo.gl/RvZwvY2tDK6WD7Ad7?g_st=ic",
-      align: "left",
-      topPct: "87%"
-    },
-    {
-      id: "vratham",
-      title: "Vratham",
-      date: "Sunday, 06th September 2026",
-      time: "06:30 AM",
-      venue: "2500 Hawk Ridge Trail Ct, Lake St Louis, MO 63367",
-      mapUrl: "https://maps.app.goo.gl/CThQcnJ6YZhjMSad7",
-      align: "right",
-      topPct: "75%"
+      topPct: "82%"
     }
   ],
   galleryImages: [
@@ -105,12 +85,10 @@ const INVITATION_DATA = {
 };
 
 const CEREMONY_OPTIONS = [
-  "Peli Kuthuru and Peli Koduku",
+  "Pelli Kuthuru",
   "Haldi",
-  "Mehandi",
-  "Wedding Day",
-  "Reception",
-  "Vratham"
+  "Mehandi & Sangeeth",
+  "Wedding Day"
 ];
 
 function TimelineEventItem({ evt, idx }) {
@@ -146,7 +124,7 @@ function TimelineEventItem({ evt, idx }) {
 
       <div className={`w-[50%] text-center ${isAlignRight ? 'text-left pl-1' : 'text-right pr-1'}`}>
         <h2 className={`${marcellus.className} text-[1.2rem] sm:text-sm text-[#76181C] tracking-[0.01em] font-medium`}>{evt.title}</h2>
-        <p className={`${cormorant.className} text-[1rem] text-gray-800 font-bold`}>{evt.date} · {evt.time}</p>
+        <p className={`${cormorant.className} text-[1rem] text-gray-800 font-bold`}>{evt.date}{evt.time ? ` · ${evt.time}` : ""}</p>
         <p className={`${cormorant.className} text-[0.85rem] text-gray-700 font-medium leading-snug`}>{evt.venue}</p>
 
         {evt.dressCode && (
@@ -174,6 +152,14 @@ export default function WeddingInvitation() {
   const audioRef = useRef(null);
 
   const heroVideoRef = useRef(null);
+  // Transparent WebM for browsers that support VP9 alpha; Safari/iOS can't, so they get an HEVC-with-alpha .mov instead.
+  const [heroVideoSrc, setHeroVideoSrc] = useState(null);
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isSafari = /^((?!chrome|chromium|android|crios|fxios|edg).)*safari/i.test(ua);
+    setHeroVideoSrc(isIOS || isSafari ? '/assets/hero-temple-bg.mov' : '/assets/hero-temple-bg.webm');
+  }, []);
   const templeVideoRef = useRef(null);
   const exitVideoRef = useRef(null);
   const formRef = useRef(null);
@@ -313,30 +299,34 @@ export default function WeddingInvitation() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="fixed inset-0 z-50 flex flex-col items-center justify-start p-6 text-center bg-cover bg-center bg-no-repeat bg-[#FDFBF2]"
-            style={{ backgroundImage: "url('/entry-card.jpg')" }}
+            className="fixed inset-0 z-50 flex flex-col items-center justify-start p-6 text-center overflow-hidden bg-[linear-gradient(to_bottom,#F2F2F1_0%,#EFE6E6_22%,#EEDFE0_45%,#EFE5E5_70%,#F3EFEE_100%)]"
           >
-            <div className="w-full max-w-sm flex flex-col items-center justify-center space-y-2 pt-50 sm:pt-28">
+            <div
+              aria-hidden="true"
+              className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-full max-w-[50dvh] bg-cover bg-bottom bg-no-repeat pointer-events-none"
+              style={{ backgroundImage: "url('/assets/entry-scene.webp')" }}
+            />
+            <div className="relative z-10 w-full max-w-sm flex flex-col items-center justify-center space-y-1.5 pt-[13dvh] [text-shadow:0_0_6px_#F0E4E4,0_0_14px_#F0E4E4]">
               <p className={`${marcellus.className} tracking-[0.14em] uppercase text-[0.72rem] text-[#76181C] font-medium`}>
                 THE WEDDING OF
               </p>
 
-              <div className="space-y-0 text-[#76181C] py-0.5">
-                <h1 className={`${greatVibes.className} text-5xl sm:text-6xl text-[#76181C] leading-tight`}>
+              <div className="space-y-0.5 text-[#76181C] py-0.5">
+                <h1 className={`${greatVibes.className} text-[2.75rem] sm:text-6xl text-[#76181C] leading-[1.1]`}>
                   {INVITATION_DATA.couple.bride.shortName}
                 </h1>
-                <p className={`${greatVibes.className} text-2xl text-[#76181C] my-0`}>&</p>
-                <h1 className={`${greatVibes.className} text-5xl sm:text-6xl text-[#76181C] leading-tight`}>
+                <p className={`${greatVibes.className} text-2xl text-[#76181C] my-0 leading-tight`}>&</p>
+                <h1 className={`${greatVibes.className} text-[2.75rem] sm:text-6xl text-[#76181C] leading-[1.1]`}>
                   {INVITATION_DATA.couple.groom.shortName}
                 </h1>
               </div>
 
-              <p className={`${marcellus.className} tracking-[0.14em] uppercase text-[0.72rem] text-[#76181C] font-medium pt-1`}>
-                05 SEPTEMBER 2026
+              <p className={`${marcellus.className} tracking-[0.14em] uppercase text-[0.72rem] text-[#76181C] font-medium pt-0.5`}>
+                18 DECEMBER 2026
               </p>
 
               <p className={`${cormorant.className} text-xs tracking-[0.08em] uppercase text-[#76181C]/90 font-medium max-w-[240px] leading-tight`}>
-                Hindu Temple of St. Louis
+                Padmavathi Parinaya Kalyana Vedika
               </p>
 
               <div className="pt-3">
@@ -354,8 +344,9 @@ export default function WeddingInvitation() {
 
       <main className="max-w-md mx-auto min-h-screen bg-[#FDFBF2] shadow-2xl border-x border-amber-200/50">
 
-        <section className="relative h-screen min-h-[680px] max-h-[850px] flex flex-col items-center justify-start p-6 text-center overflow-hidden">
-          <video
+        <section className="relative h-screen min-h-[680px] max-h-[850px] flex flex-col items-center justify-start p-6 text-center overflow-hidden bg-[linear-gradient(to_bottom,#F2F2F1_0%,#EFE6E6_22%,#EEDFE0_45%,#EFE5E5_70%,#F3EFEE_100%)]">
+          {heroVideoSrc && <video
+            key={heroVideoSrc}
             ref={heroVideoRef}
             autoPlay
             loop
@@ -365,30 +356,30 @@ export default function WeddingInvitation() {
             webkit-playsinline="true"
             x-webkit-airplay="allow"
             className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
-            src="/assets/hero-procession-bg.mp4"
-          />
+            src={heroVideoSrc}
+          />}
 
-          <div className="relative z-10 w-full flex flex-col items-center justify-center space-y-2.5 pt-26">
+          <div className="relative z-10 w-full flex flex-col items-center justify-center space-y-2.5 pt-36">
             <p className={`${marcellus.className} tracking-[0.14em] text-[0.72rem] uppercase text-[#76181C] font-medium`}>
               || Shree Ganeshay Namah ||
             </p>
 
             <div className="space-y-0 text-[#76181C] py-1">
               <h1 className={`${greatVibes.className} text-6xl text-[#76181C]`}>
-                {INVITATION_DATA.couple.groom.shortName}
+                {INVITATION_DATA.couple.bride.shortName}
               </h1>
               <p className={`${greatVibes.className} text-3xl text-[#76181C] my-0`}>&</p>
               <h1 className={`${greatVibes.className} text-6xl text-[#76181C]`}>
-                {INVITATION_DATA.couple.bride.shortName}
+                {INVITATION_DATA.couple.groom.shortName}
               </h1>
             </div>
 
             <p className={`${marcellus.className} tracking-[0.14em] text-[0.72rem] uppercase text-[#76181C] font-medium pt-1`}>
-              Saturday, September 05, 2026
+              Friday, December 18, 2026
             </p>
 
             <p className={`${cormorant.className} text-xs tracking-[0.08em] uppercase text-[#76181C]/90 font-medium max-w-[260px] leading-relaxed`}>
-               Hindu Temple of Saint Louis, Missouri, USA
+               Padmavathi Parinaya Kalyana Vedika
             </p>
           </div>
         </section>
@@ -417,29 +408,6 @@ export default function WeddingInvitation() {
           <div className="relative z-10 pt-6 pb-4 px-4">
             <div className="relative w-64 h-64 mx-auto flex items-center justify-center">
               <div className="absolute w-[210px] h-[210px] rounded-full overflow-hidden shadow-xl bg-white z-0 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mt-[-13px] ml-[7px]">
-                <img src={INVITATION_DATA.couple.groom.image} alt={INVITATION_DATA.couple.groom.name} className="w-full h-full object-cover object-top" />
-              </div>
-              <img 
-                src="/assets/pink-floral-wreath.png" 
-                alt="Pink Floral Wreath" 
-                className="absolute inset-0 w-full h-full object-contain pointer-events-none z-10 scale-125 mix-blend-multiply opacity-95" 
-              />
-            </div>
-
-            <div className="mt-3 space-y-1">
-              <h3 className={`${greatVibes.className} text-3xl text-[#76181C]`}>{INVITATION_DATA.couple.groom.name}</h3>
-              <p className={`${marcellus.className} tracking-[0.14em] text-[0.72rem] uppercase text-[#76181C] font-medium pt-1`}>SON OF</p>
-              <p className={`${cormorant.className} text-sm text-gray-800 font-medium`}>{INVITATION_DATA.couple.groom.parents}</p>
-            </div>
-          </div>
-
-          <div className="relative z-10 w-full my-3 flex justify-center">
-            <img src="/assets/gold-divider.png" alt="Divider" className="w-64 max-w-full h-auto opacity-90" />
-          </div>
-
-          <div className="relative z-10 pt-2 pb-4 px-4">
-            <div className="relative w-64 h-64 mx-auto flex items-center justify-center">
-              <div className="absolute w-[210px] h-[210px] rounded-full overflow-hidden shadow-xl bg-white z-0 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mt-[-13px] ml-[7px]">
                 <img src={INVITATION_DATA.couple.bride.image} alt={INVITATION_DATA.couple.bride.name} className="w-full h-full object-cover object-top" />
               </div>
               <img 
@@ -451,8 +419,31 @@ export default function WeddingInvitation() {
 
             <div className="mt-3 space-y-1">
               <h3 className={`${greatVibes.className} text-3xl text-[#76181C]`}>{INVITATION_DATA.couple.bride.name}</h3>
-              <p className={`${marcellus.className} tracking-[0.14em] text-[0.72rem] uppercase text-[#76181C] font-medium pt-1`}>DAUGHTER OF</p>
+              <p className={`${marcellus.className} tracking-[0.14em] text-[0.72rem] uppercase text-[#76181C] font-medium pt-1`}>SON OF</p>
               <p className={`${cormorant.className} text-sm text-gray-800 font-medium`}>{INVITATION_DATA.couple.bride.parents}</p>
+            </div>
+          </div>
+
+          <div className="relative z-10 w-full my-3 flex justify-center">
+            <img src="/assets/gold-divider.png" alt="Divider" className="w-64 max-w-full h-auto opacity-90" />
+          </div>
+
+          <div className="relative z-10 pt-2 pb-4 px-4">
+            <div className="relative w-64 h-64 mx-auto flex items-center justify-center">
+              <div className="absolute w-[210px] h-[210px] rounded-full overflow-hidden shadow-xl bg-white z-0 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mt-[-13px] ml-[7px]">
+                <img src={INVITATION_DATA.couple.groom.image} alt={INVITATION_DATA.couple.groom.name} className="w-full h-full object-cover object-top" />
+              </div>
+              <img 
+                src="/assets/pink-floral-wreath.png" 
+                alt="Pink Floral Wreath" 
+                className="absolute inset-0 w-full h-full object-contain pointer-events-none z-10 scale-125 mix-blend-multiply opacity-95" 
+              />
+            </div>
+
+            <div className="mt-3 space-y-1">
+              <h3 className={`${greatVibes.className} text-3xl text-[#76181C]`}>{INVITATION_DATA.couple.groom.name}</h3>
+              <p className={`${marcellus.className} tracking-[0.14em] text-[0.72rem] uppercase text-[#76181C] font-medium pt-1`}>DAUGHTER OF</p>
+              <p className={`${cormorant.className} text-sm text-gray-800 font-medium`}>{INVITATION_DATA.couple.groom.parents}</p>
             </div>
           </div>
         </section>
@@ -522,8 +513,8 @@ export default function WeddingInvitation() {
             </p>
           </div>
 
-          <div className="relative w-full aspect-[400/1600] max-w-md mx-auto z-10">
-            <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 400 1600" fill="none">
+          <div className="relative w-full aspect-[400/1400] max-w-md mx-auto z-10">
+            <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 400 1400" fill="none">
               <path
                 d="M 215 50 Q 80 130 90 265 Q 100 400 300 490 Q 420 540 210 680 Q -10 820 210 960 Q 430 1100 90 1240 Q -30 1350 280 1460 Q 310 1500 200 1540"
                 stroke="#76181C"

@@ -33,97 +33,67 @@ const ENTRY_MESSAGE = 'entry.1884014554';
 // 2. Published Google Sheet CSV URL
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTX28Ow8aEJNlcJT_0sHWqpkKVx3Hq1PJ9bV-foZTXolwmbLD0DH3HXTZ6G-2Or8c8afEvaXw209BgL/pub?gid=314884218&single=true&output=csv';
 
-// 3. Wedding Events Array organized chronologically (Vratham before Reception)
+// 3. Wedding Events Array organized chronologically
 const EVENTS_LIST = [
   {
-    id: 'haldi',
-    title: 'Haldi',
-    date: 'Friday, 04th Sept 2026',
-    time: '08:30 AM',
-    locationName: '1 Questover Ct, St Peters, MO',
-    mapsUrl: 'https://maps.app.goo.gl/qJE55nGfkNPKDkzj6?g_st=iw',
-    theme: 'Yellow',
-    ics: {
-      title: "Vineela & Venkat's Haldi Ceremony",
-      description: "Join us for the vibrant Haldi Ceremony of Vineela & Venkat at 08:30 AM.",
-      startTime: "20260904T083000",
-      endTime: "20260904T120000",
-      filename: "haldi-ceremony.ics"
-    }
-  },
-  {
     id: 'pelli-kuthuru',
-    title: 'Peli Kuthuru and Peli Koduku',
-    date: 'Friday, 04th Sept 2026',
-    time: '10:00 AM',
-    locationName: '1 Questover Ct, St Peters, MO',
-    mapsUrl: 'https://maps.app.goo.gl/qJE55nGfkNPKDkzj6?g_st=iw',
+    title: 'Pelli Kuthuru',
+    date: 'Wednesday, 16th Dec 2026',
+    time: 'Morning',
+    locationName: 'Manyatha Arcade',
+    mapsUrl: 'https://maps.app.goo.gl/5f8o9aWzrDU6vh8H9',
     ics: {
-      title: "Vineela & Venkat's Pelli Kuthuru and Peli Koduku",
-      description: "Join us for Pelli Kuthuru and Peli Koduku ceremony at 11:02 AM.",
-      startTime: "20260904T110200",
-      endTime: "20260904T140000",
+      title: "Jhansi & Ramesh's Pelli Kuthuru",
+      description: "Join us for Jhansi's Pelli Kuthuru ceremony at Manyatha Arcade.",
+      startTime: "20261216T090000",
+      endTime: "20261216T120000",
       filename: "pelli-kuthuru.ics"
     }
   },
   {
-    id: 'mehandi',
-    title: 'Mehandi',
-    date: 'Friday, 04th Sept 2026',
-    time: '05:00 PM',
-    locationName: '1 Questover Ct, St Peters, MO',
-    mapsUrl: 'https://maps.app.goo.gl/qJE55nGfkNPKDkzj6?g_st=iw',
+    id: 'haldi',
+    title: 'Haldi',
+    date: 'Wednesday, 16th Dec 2026',
+    time: 'Afternoon',
+    locationName: 'Manyatha Arcade',
+    mapsUrl: 'https://maps.app.goo.gl/5f8o9aWzrDU6vh8H9',
+    theme: 'Yellow',
     ics: {
-      title: "Vineela & Venkat's Mehandi Night",
-      description: "Join us for Mehandi celebration at 06:00 PM.",
-      startTime: "20260904T180000",
-      endTime: "20260904T220000",
-      filename: "mehandi-night.ics"
+      title: "Jhansi & Ramesh's Haldi Ceremony",
+      description: "Join us for the vibrant Haldi Ceremony of Jhansi & Ramesh at Manyatha Arcade.",
+      startTime: "20261216T140000",
+      endTime: "20261216T170000",
+      filename: "haldi-ceremony.ics"
+    }
+  },
+  {
+    id: 'mehandi-sangeeth',
+    title: 'Mehandi & Sangeeth',
+    date: 'Thursday, 17th Dec 2026',
+    time: '',
+    locationName: 'Manyatha Arcade',
+    mapsUrl: 'https://maps.app.goo.gl/5f8o9aWzrDU6vh8H9',
+    ics: {
+      title: "Jhansi & Ramesh's Mehandi & Sangeeth",
+      description: "Join us for the Mehandi & Sangeeth celebration at Manyatha Arcade.",
+      startTime: "20261217T170000",
+      endTime: "20261217T220000",
+      filename: "mehandi-sangeeth.ics"
     }
   },
   {
     id: 'wedding',
     title: 'Wedding Day',
-    date: 'Saturday, 05th Sept 2026',
-    time: '09:00 AM',
-    locationName: 'The Hindu Temple of St Louis',
-    mapsUrl: 'https://maps.app.goo.gl/QZRRP3PrJEx9x5J17?g_st=ipc',
+    date: 'Friday, 18th Dec 2026',
+    time: '08:04 PM',
+    locationName: 'Padmavathi Parinaya Kalyana Vedika',
+    mapsUrl: 'https://share.google/0ZVxJKoMQRk4mo8zT',
     ics: {
-      title: "Vineela & Venkat's Wedding Ceremony",
-      description: "Join us for the auspicious Wedding Ceremony of Vineela & Venkat at 10:31 AM.",
-      startTime: "20260905T103100",
-      endTime: "20260905T143000",
+      title: "Jhansi & Ramesh's Wedding Ceremony",
+      description: "Join us for the auspicious Wedding Ceremony of Jhansi & Ramesh at 08:04 PM.",
+      startTime: "20261218T200400",
+      endTime: "20261218T235900",
       filename: "wedding-ceremony.ics"
-    }
-  },
-  {
-    id: 'vratham',
-    title: 'Vratham',
-    date: 'Sunday, 06th Sept 2026',
-    time: '06:30 AM',
-    locationName: '2500 Hawk Ridge Trail Ct, Lake St Louis, MO',
-    mapsUrl: 'https://maps.app.goo.gl/CThQcnJ6YZhjMSad7',
-    ics: {
-      title: "Vineela & Venkat's Vratham",
-      description: "Join us for the Vratham ceremony at 09:00 AM.",
-      startTime: "20260906T090000",
-      endTime: "20260906T120000",
-      filename: "vratham.ics"
-    }
-  },
-  {
-    id: 'reception',
-    title: 'Reception',
-    date: 'Sunday, 06th Sept 2026',
-    time: '12:00 PM',
-    locationName: 'Persis Banquet Hall',
-    mapsUrl: 'https://maps.app.goo.gl/RvZwvY2tDK6WD7Ad7?g_st=ic',
-    ics: {
-      title: "Vineela & Venkat's Reception",
-      description: "Join us for the Reception celebration of Vineela & Venkat at 06:30 PM.",
-      startTime: "20260906T183000",
-      endTime: "20260906T223000",
-      filename: "reception.ics"
     }
   }
 ];
@@ -367,15 +337,15 @@ export default function EventsInvite() {
             Wedding Invitation
           </p>
           <h1 className="text-xl sm:text-2xl font-extrabold tracking-wide text-white leading-tight drop-shadow-md">
-            Vineela &amp; Venkat&apos;s
+            Jhansi &amp; Ramesh&apos;s
             <span className="block text-amber-200">Wedding Journey</span>
           </h1>
           <div className="pt-1 space-y-0.5">
             <p className="text-xs font-semibold text-slate-100">
-              September 4 &ndash; 6, 2026
+              December 16 &ndash; 18, 2026
             </p>
             <p className="text-[11px] font-medium text-amber-100/90">
-              Multiple Ceremonies &bull; St. Louis &amp; Plano
+              Multiple Ceremonies &bull; Manyatha Arcade &amp; Padmavathi Parinaya Kalyana Vedika
             </p>
           </div>
         </div>
@@ -473,9 +443,9 @@ export default function EventsInvite() {
                   {/* Couple Names Intro */}
                   <div className="text-center py-0.5">
                     <h4 className="text-sm font-bold text-white tracking-wide">
-                      Vineela <span className="text-amber-300 font-serif font-normal">&amp;</span> Venkat
+                      Jhansi <span className="text-amber-300 font-serif font-normal">&amp;</span> Ramesh
                     </h4>
-                    <p className="text-[10px] text-amber-200/80">September 4 &ndash; 6, 2026</p>
+                    <p className="text-[10px] text-amber-200/80">December 16 &ndash; 18, 2026</p>
                   </div>
 
                   {/* DYNAMIC EVENTS LIST */}
@@ -511,7 +481,7 @@ export default function EventsInvite() {
 
                         <div className="flex items-center justify-between text-[11px] text-slate-300 pt-0.5">
                           <span className="font-semibold text-amber-100/90 flex items-center gap-1">
-                            <Clock className="w-3 h-3 text-amber-400 shrink-0" /> {evt.date} &bull; {evt.time}
+                            <Clock className="w-3 h-3 text-amber-400 shrink-0" /> {evt.date}{evt.time && <> &bull; {evt.time}</>}
                           </span>
                         </div>
 
@@ -657,7 +627,7 @@ export default function EventsInvite() {
                         &ldquo;We are eagerly awaiting for you to be here and share in our special moment!&rdquo;
                       </p>
                       <p className="text-xs text-slate-400 pt-2">
-                        Vineela &amp; Venkat
+                        Jhansi &amp; Ramesh
                       </p>
                     </div>
                   ) : (
@@ -753,12 +723,10 @@ export default function EventsInvite() {
                                 ceremonyError ? 'border-rose-500' : 'border-amber-300/30'
                               }`}>
                                 {[
-                                  'Peli Kuthuru and Peli Koduku',
+                                  'Pelli Kuthuru',
                                   'Haldi',
-                                  'Mehandi',
-                                  'Wedding Day',
-                                  'Vratham',
-                                  'Reception'
+                                  'Mehandi & Sangeeth',
+                                  'Wedding Day'
                                 ].map((ceremony) => {
                                   const isChecked = selectedCeremonies.includes(ceremony);
                                   return (
